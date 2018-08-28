@@ -2,7 +2,7 @@ package com.devon.exe01;
 
 import java.util.List;
 
-public class Cadastro {
+public class Cadastro { 
 
 	private List<Familia> familias;
 

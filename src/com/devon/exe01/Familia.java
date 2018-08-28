@@ -1,6 +1,6 @@
 package com.devon.exe01;
 
-public class Familia {
+public class Familia { 
 	
 	private String nomeFamilia;
 	private Pessoa primeiroMembro;
