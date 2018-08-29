@@ -1,4 +1,4 @@
-package com.devon.exe02;
+package com.devon.programacao.exe02;
  
 import java.io.IOException;
 import java.nio.file.DirectoryStream;

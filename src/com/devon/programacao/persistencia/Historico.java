@@ -1,4 +1,4 @@
-package com.devon.persistencia;
+package com.devon.programacao.persistencia;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

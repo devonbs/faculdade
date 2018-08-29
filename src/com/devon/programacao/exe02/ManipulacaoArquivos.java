@@ -1,4 +1,4 @@
-package com.devon.exe02;
+package com.devon.programacao.exe02;
  
 import java.io.File;
 import java.io.IOException;

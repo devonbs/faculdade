@@ -1,4 +1,4 @@
-package com.devon.lista01;
+package com.devon.programacao.lista01;
 
  
 import java.io.BufferedReader;

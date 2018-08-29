@@ -1,4 +1,4 @@
-package com.devon.exe01;
+package com.devon.programacao.exe01;
 
 public class Cidade { 
 

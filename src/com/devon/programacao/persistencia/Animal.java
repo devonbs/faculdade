@@ -1,4 +1,4 @@
-package com.devon.persistencia;
+package com.devon.programacao.persistencia;
 
 public class Animal {
 
