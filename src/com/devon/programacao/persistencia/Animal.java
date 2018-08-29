@@ -1,7 +1,13 @@
 package com.devon.programacao.persistencia;
 
-public class Animal {
+import java.io.Serializable;
 
+public class Animal implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1642596290729755097L;
 	private int numeroIdentificacao;
 	private double kilos;
 	private short altura;

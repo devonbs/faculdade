@@ -1,11 +1,17 @@
 package com.devon.programacao.persistencia;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class Historico {
+public class Historico implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8181072561792643024L;
+	
 	private List<Animal> animais;
 	private Date dataRegistro;
 	
