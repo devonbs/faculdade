@@ -32,10 +32,10 @@ public class ControleHistorico {
 	private JTextField txtTemperatura;
 	
 	private Historico historico;
-	private ArrayList<Animal> animais;
 	private final Path path = Paths.get("historico.dat");
 	private JTextArea txtHistorico;
-	private Calendar dataAtual = Calendar.getInstance(); 
+	private Date dataAtual = new Date();
+	private DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
 
 	/**
 	 * Launch the application.
@@ -59,11 +59,12 @@ public class ControleHistorico {
 	public ControleHistorico() {
 		initialize();
 		historico = TrabalhoArquivosPersistencia.carregarHistorico(path);
-		if(historico != null) {
+		if(historico.getDataRegistro() != null) {
 			txtHistorico.append(historico.gerarRelatorioAnimais());
+			txtData.setText(historico.getDataFormatada(historico.getDataRegistro()));
+		} else {
+			txtData.setText(dateFormat.format(dataAtual));
 		}
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
-		txtData.setText(dateFormat.format(dataAtual.getTime().toString()));
 	}
 
 	/**
@@ -179,7 +180,8 @@ public class ControleHistorico {
 				animal.setKilos(Double.parseDouble(txtPeso.getText()));
 				animal.setAltura(Short.parseShort(txtAltura.getText()));
 				animal.setTemperatura(Double.parseDouble(txtTemperatura.getText()));
-				animais.add(animal);
+				historico.adicionarAnimal(animal);
+				txtHistorico.append(animal.gerarHistorico());
 			}
 		});
 		GridBagConstraints gbc_btnGravar = new GridBagConstraints();

@@ -2,6 +2,7 @@ package com.devon.programacao.persistencia;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,7 +14,7 @@ public class Historico implements Serializable {
 	private static final long serialVersionUID = 8181072561792643024L;
 	
 	private Date dataRegistro;
-	private List<Animal> animais;
+	private List<Animal> animais = new ArrayList<Animal>();
 	
 	public Animal retornaAnimalPesquisado(int identificacaoAnimal) {
 		for (Animal animal : animais) {

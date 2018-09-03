@@ -23,6 +23,8 @@ public class TrabalhoArquivosPersistencia {
             historico = new Historico();
         } catch (ClassNotFoundException classNotFoundException) {
             historico = new Historico();
+        } catch (Exception e) {
+        	historico = new Historico();
         }
         return historico;
     }
