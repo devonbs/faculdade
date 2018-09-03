@@ -21,7 +21,11 @@ import java.util.logging.Logger;
  */
 public class Exe05 extends javax.swing.JFrame {
 
-    private ArrayList<Forma> formas;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8965435175945787628L;
+	private ArrayList<Forma> formas;
     private final Path pathArq= Paths.get("formas.dat");
     /**
      * Creates new form Exe5

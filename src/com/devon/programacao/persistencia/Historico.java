@@ -12,8 +12,8 @@ public class Historico implements Serializable {
 	 */
 	private static final long serialVersionUID = 8181072561792643024L;
 	
-	private List<Animal> animais;
 	private Date dataRegistro;
+	private List<Animal> animais;
 	
 	public Animal retornaAnimalPesquisado(int identificacaoAnimal) {
 		for (Animal animal : animais) {
@@ -32,6 +32,10 @@ public class Historico implements Serializable {
 			sb.append("\r \n \t");
 		}
 		return sb.toString();
+	}
+	
+	public void adicionarAnimal(Animal animal) {
+		animais.add(animal);
 	}
 	
 	public List<Animal> getAnimais() {

@@ -39,8 +39,8 @@ public class Animal implements Serializable {
 	}
 	
 	public String gerarHistorico() {
-		return "Animal: Número de identificação = " + numeroIdentificacao + ", Peso(Kg) = " + kilos + ", Altura = " + altura
-				+ ", Temperatura do corpo = " + temperatura + "]";
+		return "Número de identificação = " + numeroIdentificacao + "\n Peso(Kg) = " + kilos + "\n Altura = " + altura
+				+ "\n Temperatura do corpo = " + temperatura + "\n" ;
 	}
 	
 	
