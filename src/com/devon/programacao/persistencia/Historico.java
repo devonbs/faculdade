@@ -27,10 +27,10 @@ public class Historico implements Serializable {
 	
 	public String gerarRelatorioAnimais() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Registros da data:" + this.getDataFormatada(getDataRegistro()));
+		sb.append("Registros da data:" + this.getDataFormatada(getDataRegistro()) + "\n");
 		for (Animal animal : getAnimais()) {
 			sb.append(animal.gerarHistorico());
-			sb.append("\r \n \t");
+			sb.append("\r \n");
 		}
 		return sb.toString();
 	}

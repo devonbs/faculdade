@@ -19,6 +19,7 @@ import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -59,12 +60,19 @@ public class ControleHistorico {
 	public ControleHistorico() {
 		initialize();
 		historico = TrabalhoArquivosPersistencia.carregarHistorico(path);
-		if(historico.getDataRegistro() != null) {
+ 		if(historico.getDataRegistro() != null) {
 			txtHistorico.append(historico.gerarRelatorioAnimais());
 			txtData.setText(historico.getDataFormatada(historico.getDataRegistro()));
 		} else {
 			txtData.setText(dateFormat.format(dataAtual));
 		}
+	}
+	
+	private void limparCampos() {
+		txtNumeroAnimal.setText("");
+		txtPeso.setText("");
+		txtAltura.setText("");
+		txtTemperatura.setText("");
 	}
 
 	/**
@@ -75,6 +83,7 @@ public class ControleHistorico {
 		frame.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent arg0) {
+				historico.setDataRegistro(dataAtual);
 				TrabalhoArquivosPersistencia.salvarHistorico(historico, path);
 			}
 		});
@@ -175,13 +184,18 @@ public class ControleHistorico {
 		JButton btnGravar = new JButton("Gravar");
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Animal animal = new Animal();
-				animal.setNumeroIdentificacao(Integer.parseInt(txtNumeroAnimal.getText()));
-				animal.setKilos(Double.parseDouble(txtPeso.getText()));
-				animal.setAltura(Short.parseShort(txtAltura.getText()));
-				animal.setTemperatura(Double.parseDouble(txtTemperatura.getText()));
-				historico.adicionarAnimal(animal);
-				txtHistorico.append(animal.gerarHistorico());
+				if(historico.retornaAnimalPesquisado(Integer.parseInt(txtNumeroAnimal.getText())) != null ) {
+					JOptionPane.showMessageDialog(null, "O animal já existe na lista");
+				} else {
+					Animal animal = new Animal();
+					animal.setNumeroIdentificacao(Integer.parseInt(txtNumeroAnimal.getText()));
+					animal.setKilos(Double.parseDouble(txtPeso.getText()));
+					animal.setAltura(Short.parseShort(txtAltura.getText()));
+					animal.setTemperatura(Double.parseDouble(txtTemperatura.getText()));
+					historico.adicionarAnimal(animal);
+					txtHistorico.append(animal.gerarHistorico());
+					limparCampos();
+				}
 			}
 		});
 		GridBagConstraints gbc_btnGravar = new GridBagConstraints();
